@@ -37,6 +37,32 @@ export function ControlsPanel({
     <>
       <View style={styles.buttons}>
         <Button
+            testID="start-page-button"
+            text="Start"
+            disabled={activePage === 0}
+            onPress={firstPage}
+        />
+        <Button
+            testID="prev-page-button"
+            text="Prev"
+            disabled={activePage === 0}
+            onPress={prevPage}
+        />
+        <Button
+            testID="next-page-button"
+            text="Next"
+            disabled={activePage === pages.length - 1}
+            onPress={nextPage}
+        />
+        <Button
+            testID="last-page-button"
+            text="Last"
+            disabled={activePage === pages.length - 1}
+            onPress={lastPage}
+        />
+      </View>
+      <View style={styles.buttons}>
+        <Button
           testID="scroll-enabled-button"
           text={scrollEnabled ? 'Scroll Enabled' : 'Scroll Disabled'}
           onPress={toggleScroll}
@@ -73,32 +99,7 @@ export function ControlsPanel({
           </Text>
         </View>
       </View>
-      <View style={styles.buttons}>
-        <Button
-          testID="start-page-button"
-          text="Start"
-          disabled={activePage === 0}
-          onPress={firstPage}
-        />
-        <Button
-          testID="prev-page-button"
-          text="Prev"
-          disabled={activePage === 0}
-          onPress={prevPage}
-        />
-        <Button
-          testID="next-page-button"
-          text="Next"
-          disabled={activePage === pages.length - 1}
-          onPress={nextPage}
-        />
-        <Button
-          testID="last-page-button"
-          text="Last"
-          disabled={activePage === pages.length - 1}
-          onPress={lastPage}
-        />
-      </View>
+
       <View style={styles.progress}>
         <Text style={styles.buttonText}>
           Page {activePage + 1} / {pages.length}{' '}
